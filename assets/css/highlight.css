@@ -1,5 +1,5 @@
-.highlight .hll { background-color: #49483e }
-.highlight pre code { color: #ccc } /* Default */
+.highlight .hll { background-color: #ccc }
+.highlight pre code { color: #49483e } /* Default */
 .highlight .c { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
 .highlight .k { color: #66d9ef } /* Keyword */
