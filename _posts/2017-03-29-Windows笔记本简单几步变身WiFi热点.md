@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows笔记本简单几步变身WiFi热点"
-description: 
+description: 几条命令，笔记本变身WiFi热点。
 og_image: 
 tags: [Windows,]
 ---
