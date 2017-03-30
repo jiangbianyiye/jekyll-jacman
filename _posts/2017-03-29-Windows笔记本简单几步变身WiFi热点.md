@@ -16,7 +16,9 @@ tags: [Windows,]
 
 在命令行中输入：
 
-    netsh wlan set hostednetwork mode=allow ssid=Wifi名 key=密码
+```
+netsh wlan set hostednetwork mode=allow ssid=Wifi名 key=密码
+```
 
 >**注意:**需要将上述*“Wifi名”*改为你的wifi名称， **Wifi名称最好为英文** 不然可能会导致乱码问题，**密码最少8位**。
 
