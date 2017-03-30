@@ -1,13 +1,9 @@
 ---
 layout: post
 title: "Windows笔记本简单几步变身WiFi热点"
-description: 
-og_image: 
 tags: [Windows,]
 ---
-
 几条命令，笔记本变身WiFi热点。
-
 ### 打开命令提示符
 
 - 如果当前用户是管理员直接win+r打开运行窗口输入cmd后回车。
