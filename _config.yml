@@ -11,12 +11,6 @@ permalink: /:categories/:year/:month/:day/:title
 #### Markdown Processors
 markdown: kramdown
 
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
 #redcarpet:
  # extensions:
  #   - hard_wrap
