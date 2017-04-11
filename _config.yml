@@ -9,16 +9,16 @@ highlighter: rouge #pygments
 permalink: /:categories/:year/:month/:day/:title 
 
 #### Markdown Processors
-markdown: kramdown
-kramdown:
-  extensions:
-    - hard_wrap
-    - no_intra_emphasis
-    - autolink
-    - strikethrough
-    - tables
-    - lax_spacing
-   - with_toc_data
+#markdown: redcarpet
+#redcarpet:
+ # extensions:
+ #   - hard_wrap
+ #   - no_intra_emphasis
+ #   - autolink
+ #   - strikethrough
+ #   - tables
+ #   - lax_spacing
+ #  - with_toc_data
 
 #### Default Attributes
 defaults:
