@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Java关闭Frame窗体的操作
-categories:Java
-tags:Java
-date: 2017-04-24 20:03:20
-description: 这篇博客主要讨论Java Frame类与JFrame的差别，以及如何关闭Frame窗体。
+tags: Java
+categories: Java
+date: 2017-04-24 20:03:20 +0800
 ---
+
+这篇博客主要讨论Java Frame类与JFrame的差别，以及如何关闭Frame窗体。
 
 ### Java中JFrame与Frame的区别
 

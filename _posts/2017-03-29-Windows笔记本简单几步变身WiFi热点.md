@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Windows笔记本简单几步变身WiFi热点"
-tags: [Windows,]
+title: Windows笔记本简单几步变身WiFi热点
+tags: Windows
 ---
 几条命令，笔记本变身WiFi热点。
 ### 打开命令提示符
