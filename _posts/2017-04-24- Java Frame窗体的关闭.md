@@ -1,11 +1,10 @@
 ---
-
+layout: post
 title: Java 关闭Frame窗体的操作
 date: 2017-04-24 20:03:20
 category: Java
 tags:Java
 description: 这篇博客主要讨论Java Frame类与JFrame的差别，以及如何关闭Frame窗体。
-
 ---
 
 ### Java中JFrame与Frame的区别
@@ -29,16 +28,16 @@ Swing:
 Java的GUI相关类的继承关系：
 
 ```
-	Object
-	  	|
-	Component
+     Object
+        |
+    Component
  -------|--------
- |     			|
-JComponent		Window
- |				|
-JPanel			Frame
-				|
-				JFrame
+ |              |
+JComponent     Window
+ |              |
+JPanel         Frame
+                |
+               JFrame
 ```
 现在Java GUI开发者大都使用Swing,因为它有很多高级特性，并且支持LookAndFell（所见即所得）特性。有兴趣的话可以在[http://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/](http://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/)中查看。
 
