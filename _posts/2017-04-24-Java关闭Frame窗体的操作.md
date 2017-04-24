@@ -67,8 +67,8 @@ public class MyFrame extends JFrame {
             public void windowClosing(java.awt.event.WindowEvent e) {
                 System.exit(0);
             }
-    });
-} 
-...
+    	});
+	}
+	...
 }
 ```
