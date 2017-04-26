@@ -18,6 +18,6 @@ date: 2017-04-26 22:45:00 +0800
 ### 设置DB2通用驱动
 
 首先，找到虚拟机中DB2的安装目录，到...\IBM\SQLLIB\java目录下，将文件db2jcc.jar与db2jcc_license_cu.jar文件拷出来，放到实机中。然后打开NetBeans按下图操作。    
-![](./image/42.png)
+![](/images/42.png)
 
 ### 连接数据库
