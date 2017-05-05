@@ -197,3 +197,46 @@ int main(int argc,char *argv[])
     - The array format is useful when the number of parameters that are to be sent to the exec'ed process are variable -- as in not known in advance, so you can't put in a fixed number of parameters in a function call.
 - **E**: The versions with an 'e' at the end let you additionally pass an array of char* that are a set of strings added to the spawned processes environment before the exec'ed program launches. Yet another way of passing parameters, really.
 - **P**: The versions with 'p' in there use the environment path variable to search for the executable file named to execute. The versions without the 'p' require an absolute or relative file path to be prepended to the filename of the executable if it is not in the current working directory.
+
+#### Question 5
+>Nowwrite a programthat uses wait() towait for the child process
+to finish in the parent. What does wait() return? What happens if
+you use wait() in the child?
+
+代码;
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main(int argc,char *argv[])
+{
+	printf("Solving Question 5\n");
+	int rc = fork();
+	if(rc < 0){
+		fprintf(stderr,"fork failed\n");
+		exit(1);
+	} else if (rc == 0) {
+		int cc=wait(NULL);
+		printf("I'm child (pid:%d),wait() returned %d\n",(int)getpid(),cc);
+	} else {
+		int wc =wait(NULL);
+		printf("I'm parrent of %d (wait returned:%d)\n",rc,wc);
+	}
+	return 0;
+}
+```
+
+输出：
+
+```
+$ ./q5
+Solving Question 5
+I'm child (pid:6505),wait() returned -1
+I'm parrent of 6505 (wait returned:6505)
+```
+
+wait(NULL) 等待任何一个子进程结束。   
+wait()返回的是子进程的PID,在此例中子进程中没有子进程，调用wait()后直接返回。
