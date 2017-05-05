@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 《Operating Systems: Three Easy Pieces》解题记录
+title: 《Operating Systems Three Easy Pieces》解题记录
 tags: 《OSTEP》
 categories: OS
 date: 2017-05-04 22:47:00 +0800
@@ -195,6 +195,6 @@ int main(int argc,char *argv[])
 1. L vs V: whether you want to pass the parameters to the exec'ed program as
     - L: individual parameters in the call (variable argument list): execl(), execle(), execlp(), and execlpe()
     - V: as an array of char* execv(), execve(), execvp(), and execvpe()
-    The array format is useful when the number of parameters that are to be sent to the exec'ed process are variable -- as in not known in advance, so you can't put in a fixed number of parameters in a function call.
+    - The array format is useful when the number of parameters that are to be sent to the exec'ed process are variable -- as in not known in advance, so you can't put in a fixed number of parameters in a function call.
 2. E: The versions with an 'e' at the end let you additionally pass an array of char* that are a set of strings added to the spawned processes environment before the exec'ed program launches. Yet another way of passing parameters, really.
 3. P: The versions with 'p' in there use the environment path variable to search for the executable file named to execute. The versions without the 'p' require an absolute or relative file path to be prepended to the filename of the executable if it is not in the current working directory.
