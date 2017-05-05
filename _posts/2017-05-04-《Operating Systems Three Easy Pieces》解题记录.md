@@ -9,11 +9,10 @@ date: 2017-05-04 22:47:00 +0800
 最近在看**《Operating Systems: Three Easy Pieces》**，一本公认比较适合自学的一本关于操作系统的书籍，课后有一些需要编码实现的习题，由于都是自己编码解答、没有能对照纠正的答案，为方便之后温习纠正，故在此记录(不断更新)。    
 **环境:操作系统：Centos7，编译器gcc**
 
-### Virtualization
 
-#### Process API
+### Process API
 
-##### Question 1
+#### Question 1
 
 >Write a programthat calls fork(). Before calling fork(), have the
 main process access a variable (e.g., x) and set its value to something
@@ -61,7 +60,7 @@ Val changed to 9
 
 子进程有与父进程不同的地址空间，所以修改的是各自的变量，互不影响。
 
-##### Question 2
+#### Question 2
 
 >Write a program that opens a file (with the open() system call)
 and then calls fork() to create a new process. Can both the child
@@ -110,7 +109,7 @@ child test.
 
 父、子进程都能够访问打开的文件，并发的向文件中写入内容时都能够写入。
 
-##### Question 3
+#### Question 3
 
 >3. Write another program using fork(). The child process should
 print “hello”; the parent process should print “goodbye”. You should
@@ -151,7 +150,7 @@ hello
 goodbye
 ```
 
-##### Question 4
+#### Question 4
 
 >Write a program that calls fork() and then calls some form of
 exec() to run the program /bin/ls. See if you can try all of the
