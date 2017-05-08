@@ -240,3 +240,147 @@ I'm parrent of 6505 (wait returned:6505)
 
 wait(NULL) 等待任何一个子进程结束。   
 wait()返回的是子进程的PID,在此例中子进程中没有子进程，调用wait()后直接返回。
+
+#### Question 6
+
+>Write a slight modification of the previous program, this time using
+waitpid() instead of wait(). When would waitpid() be
+useful?
+
+代码：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main(int argc,char *argv[])
+{
+	printf("Solving Question 5\n");
+	int rc = fork();
+	if(rc < 0){
+		fprintf(stderr,"fork failed\n");
+		exit(1);
+	} else if (rc == 0) {
+		printf("I'm child (pid:%d)\n",(int)getpid());
+	} else {
+		int wc =waitpid(rc,NULL,WUNTRACED);
+		printf("I'm parrent of %d (waitpid() returned:%d)\n",rc,wc);
+	}
+	return 0;
+}
+```
+
+输出：
+
+```
+$ ./q6
+Solving Question 5
+I'm child (pid:7790)
+I'm parrent of 7790 (waitpid() returned:7790)
+```
+
+waitpid()能够方便的等待哪一个进程改变状态。
+
+#### Question 7
+
+>Write a program that creates a child process, and then in the child
+closes standard output (STDOUT FILENO).What happens if the child
+calls printf() to print some output after closing the descriptor?
+
+代码：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int
+main(int argc, char *argv[])
+{
+    printf("Solving question 7\n");
+    int rc = fork();
+    if (rc < 0) {
+        // fork failed; exit
+        fprintf(stderr, "fork failed\n");
+        exit(1);
+    } else if (rc == 0) {
+		close(STDOUT_FILENO);
+        printf("Where is this message\n"); 
+    }
+    return 0;
+}
+```
+输出：
+```
+$ ./q7
+Solving question 7
+```
+
+在关闭标准输出流后掉用printf()不晓得会发生什么，可能回损坏程序，具体参考这个问答[How to close stdout and stderr in C?](http://stackoverflow.com/questions/4972994/how-to-close-stdout-and-stderr-in-c)
+
+#### Question 8
+
+>Write a program that creates two children, and connects the standard
+output of one to the standard input of the other, using the
+pipe() system call.
+
+代码：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int
+main(int argc, char *argv[])
+{
+	printf("Solving Question 8\n");
+
+	int pfd[2];
+
+	if(pipe(pfd) == -1) {
+		perror("pipe");
+		exit(1);
+	}
+
+	int pidOne=fork();
+
+	if(pidOne < 0){
+		fprintf(stderr,"fork failed\n");
+		exit(1);
+	}else if(pidOne == 0){
+		close(pfd[0]);
+		dup2(pfd[1],STDOUT_FILENO);
+		printf("Hello,I'm process(pid:%d)\n#",(int)getpid());
+	}else ;
+	
+	int pidTwo=fork();
+	
+	if(pidTwo<0){	
+		fprintf(stderr,"fork failed\n");
+		exit(1);
+	}else if(pidTwo==0){
+		close(pfd[1]);
+		printf("process(pid %d) get message:",(int)getpid());
+		char c;
+		dup2(pfd[0],STDIN_FILENO);
+		c=getchar();
+		while(c!='#'){
+			putchar(c);
+			c=getchar();
+		}
+	}else {}
+}
+```
+
+输出：
+
+```
+$ ./q8
+Solving Question 8
+process(pid 11089) get message:Hello,I'm process(pid:11088)
+```
+
+还可以实现多个线程之间通过管道连接，具体参考[How do I chain stdout in one child process to stdin in another child in C?](http://stackoverflow.com/questions/7281894/how-do-i-chain-stdout-in-one-child-process-to-stdin-in-another-child-in-c)。
