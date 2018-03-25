@@ -12,8 +12,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 body {
     line-height: 1;
-    color: #000;
-    background: #fff;
+    color: #FFF;
+    background: #000;
 }
 
 ol, ul {
@@ -869,7 +869,7 @@ header nav ul li a:hover {
     }
 
 .current {
-    color: #000000 !important;
+    color: #CCC !important;
 }
 
 @media only screen and (min-width:768px) {
